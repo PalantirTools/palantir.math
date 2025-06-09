@@ -95,15 +95,20 @@ float4_t float4_conjugate(const float4_t q)
 	return result;
 }
 // ************************************************************************************************
-float3_t float4_rotate_float3(const float3_t vec, const float4_t quat)
+float3_t float4_rotate_float3(const float3_t v, const float4_t q)
 {
-	float3_t uv, uuv;
-	float3_t qvec = float3_create(quat.x, quat.y, quat.z);
-	uv = float3_cross(qvec, vec);
-	uuv = float3_cross(qvec, uv);
-	uv = float3_scale(uv, 2.0f * quat.w);
-	uuv = float3_scale(uuv, 2.0f);
-	return float3_add(vec, float3_add(uv, uuv));
+	float3_t u = float3_create(q.x, q.y, q.z);
+
+	float s = q.w;
+
+	float3_t cross1 = float3_cross(u, v);
+	float3_t cross2 = float3_cross(u, cross1);
+
+	return float3_create(
+		v.x + 2.0f * (s * cross1.x + cross2.x),
+		v.y + 2.0f * (s * cross1.y + cross2.y),
+		v.z + 2.0f * (s * cross1.z + cross2.z)
+	);
 }
 // ************************************************************************************************
 f32 float4_magnitude(const float4_t q)

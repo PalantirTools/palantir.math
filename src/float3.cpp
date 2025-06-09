@@ -81,10 +81,24 @@ f32 float3_angle(const float3_t a, const float3_t b)
 float3_t float3_normalize(const float3_t a)
 {
 	f32 length = float3_length(a);
+	if (length <= FLT_MIN)
+	{
+		return a;
+	}
+
 	float3_t result;
 	result.x = a.x / length;
 	result.y = a.y / length;
 	result.z = a.z / length;
+	return result;
+}
+// ************************************************************************************************
+float3_t float3_negate(const float3_t a)
+{
+	float3_t result;
+	result.x = -a.x;
+	result.y = -a.y;
+	result.z = -a.z;
 	return result;
 }
 // ************************************************************************************************

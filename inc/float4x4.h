@@ -101,6 +101,17 @@ float4x4_t float4x4_mul(
 );
 
 /**
+* @brief Multiply matrix with float3
+* @param[in] a The matrix
+* @param[in] b The float3 vector
+* @return The result of the multiplication
+*/
+float3_t float4x4_mul_float3(
+	const float4x4_t* a,
+	const float3_t vec
+);
+
+/**
 * @brief Normalize the given matrix
 * @param[in] matrix The matrix to normalize
 */
@@ -123,6 +134,15 @@ float4x4_t float4x4_from_quaternion(
 * @return The quaternion
 */
 float4_t float4x4_to_quaternion(
+	const float4x4_t* matrix
+);
+
+/**
+* @brief Transpose a matrix
+* @param[in] matrix The matrix to be transposed
+* @return The transposed matrix
+*/
+float4x4_t float4x4_transpose(
 	const float4x4_t* matrix
 );
 

@@ -104,6 +104,24 @@ float4x4_t float4x4_mul(
 	return result;
 }
 // ************************************************************************************************
+float3_t float4x4_mul_float3(
+	const float4x4_t* a,
+	const float3_t vec
+)
+{
+	float x = vec.x;
+	float y = vec.y;
+	float z = vec.z;
+
+	float3_t result;
+
+	result.x = a->m[0][0] * x + a->m[0][1] * y + a->m[0][2] * z + a->m[0][3] * 1.0f;
+	result.y = a->m[1][0] * x + a->m[1][1] * y + a->m[1][2] * z + a->m[1][3] * 1.0f;
+	result.z = a->m[2][0] * x + a->m[2][1] * y + a->m[2][2] * z + a->m[2][3] * 1.0f;
+
+	return result;
+}
+// ************************************************************************************************
 void float4x4_normalize(
 	float4x4_t* matrix
 )
@@ -199,6 +217,21 @@ float4_t float4x4_to_quaternion(
 			result.z = 0.25f * s;
 		}
 	}
+	return result;
+}
+// ************************************************************************************************
+float4x4_t float4x4_transpose(const float4x4_t* matrix)
+{
+	float4x4_t result;
+
+	for (int i = 0; i < 4; ++i)
+	{
+		for (int j = 0; j < 4; ++j)
+		{
+			result.m[i][j] = matrix->m[j][i];
+		}
+	}
+
 	return result;
 }
 // ************************************************************************************************

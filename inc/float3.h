@@ -133,4 +133,11 @@ float3_t float3_normalize(
 	const float3_t a
 );
 
+/**
+* @brief float3_negate function that negates a float3_t vector
+* @param[in] a The vector
+* @return The negated vector
+*/
+float3_t float3_negate(const float3_t a);
+
 #endif // __MATH_FLOAT3_H__
