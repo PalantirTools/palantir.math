@@ -205,4 +205,18 @@ void float4_normalize(
 	float4_t* q
 );
 
+/**
+* @brief float4_t lerp
+* @details This function is used to lerp from one to another quaternion.
+* @param[in] q The source quaternion
+* @param[in] b The target quaternion
+* @param[in] t The progress from 0.0 to 1.0
+* @return The resulting quaternion
+*/
+float4_t float4_lerp(
+	float4_t* a,
+	float4_t* b,
+	f32 t
+);
+
 #endif // __MATH_FLOAT4_H__

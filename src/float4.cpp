@@ -203,3 +203,28 @@ void float4_normalize(
 	}
 }
 // ************************************************************************************************
+float4_t float4_lerp(
+	float4_t* a,
+	float4_t* b,
+	f32 t
+)
+{
+	float4_t result;
+
+	if (!a || !b)
+	{
+		result.x = 0.0f;
+		result.y = 0.0f;
+		result.z = 0.0f;
+		result.w = 0.0f;
+		return result;
+	}
+
+	result.x = a->x + (b->x - a->x) * t;
+	result.y = a->y + (b->y - a->y) * t;
+	result.z = a->z + (b->z - a->z) * t;
+	result.w = a->w + (b->w - a->w) * t;
+
+	return result;
+}
+// ************************************************************************************************
