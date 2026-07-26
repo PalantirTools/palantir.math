@@ -1,8 +1,8 @@
-#ifndef __MATH_MATHDEFS_H__
-#define __MATH_MATHDEFS_H__
+#ifndef PALANTIRMATH_H
+#define PALANTIRMATH_H
 
 // EXTERNAL INCLUDES
-#include <cmath>
+#include <math.h>
 // INTERNAL INCLUDES
 #include "basetypes.h"
 
@@ -60,4 +60,4 @@ float in_out_sigmoid(float x);
  */
 float in_expo(float x);
 
-#endif // __MATH_MATHDEFS_H__
+#endif // PALANTIRMATH_H

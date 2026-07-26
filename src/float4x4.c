@@ -1,5 +1,5 @@
 // EXTERNAL INCLUDES
-#include <cmath>
+#include <math.h>
 // INTERNAL INCLUDES
 #include "float4x4.h"
 
@@ -234,4 +234,17 @@ float4x4_t float4x4_transpose(const float4x4_t* matrix)
 
 	return result;
 }
+// ************************************************************************************************
+float4x4_t float4x4_zero = {
+	0.0f, 0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f, 0.0f
+};
+float4x4_t float4x4_unit = {
+	1.0f, 0.0f, 0.0f, 0.0f,
+	0.0f, 1.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 1.0f, 0.0f,
+	0.0f, 0.0f, 0.0f, 1.0f
+};
 // ************************************************************************************************

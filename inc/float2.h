@@ -1,5 +1,5 @@
-#ifndef __MATH_FLOAT2_H__
-#define __MATH_FLOAT2_H__
+#ifndef FLOAT2_H
+#define FLOAT2_H
 
 // EXTERNAL INCLUDES
 // INTERNAL INCLUDES
@@ -21,7 +21,7 @@ typedef struct float2_t
 * @param[in] b The second vector
 * @return The sum of the two vectors
 */
-float2_t float2_add(
+extern float2_t float2_add(
 	const float2_t a,
 	const float2_t b
 );
@@ -32,7 +32,7 @@ float2_t float2_add(
 * @param[in] b The second vector
 * @return The difference of the two vectors
 */
-float2_t float2_sub(
+extern float2_t float2_sub(
 	const float2_t a,
 	const float2_t b
 );
@@ -43,7 +43,7 @@ float2_t float2_sub(
 * @param[in] scalar The scalar to multiply the vector by
 * @return The scaled vector
 */
-float2_t float2_scale(
+extern float2_t float2_scale(
 	const float2_t a,
 	const f32 scalar
 );
@@ -54,7 +54,7 @@ float2_t float2_scale(
 * @param[in] b The second vector
 * @return The dot product of the two vectors
 */
-f32 float2_dot(
+extern f32 float2_dot(
 	const float2_t a,
 	const float2_t b
 );
@@ -65,7 +65,7 @@ f32 float2_dot(
 * @param[in] b The second vector
 * @return The cross product of the two vectors
 */
-f32 float2_cross(
+extern f32 float2_cross(
 	const float2_t a,
 	const float2_t b
 );
@@ -75,7 +75,7 @@ f32 float2_cross(
 * @param[in] a The vector to calculate the length of
 * @return The length of the vector
 */
-f32 float2_length(
+extern f32 float2_length(
 	const float2_t a
 );
 
@@ -84,7 +84,7 @@ f32 float2_length(
 * @param[in] a The vector to calculate the squared length of
 * @return The squared length of the vector
 */
-f32 float2_sqr_length(
+extern f32 float2_sqr_length(
 	const float2_t a
 );
 
@@ -94,7 +94,7 @@ f32 float2_sqr_length(
 * @param[in] b The second vector
 * @return The distance between the two vectors
 */
-f32 float2_distance(
+extern f32 float2_distance(
 	const float2_t a,
 	const float2_t b
 );
@@ -105,7 +105,7 @@ f32 float2_distance(
 * @param[in] b The second vector
 * @return The angle between the two vectors
 */
-f32 float2_angle(
+extern f32 float2_angle(
 	const float2_t a,
 	const float2_t b
 );
@@ -115,8 +115,13 @@ f32 float2_angle(
 * @param[in] a The vector to normalize
 * @return The normalized vector
 */
-float2_t float2_normalize(
+extern float2_t float2_normalize(
 	const float2_t a
 );
 
-#endif // __MATH_FLOAT2_H__
+extern float2_t float2_zero;
+extern float2_t float2_unitx;
+extern float2_t float2_unity;
+extern float2_t float2_unitscale;
+
+#endif // FLOAT2_H

@@ -1,5 +1,5 @@
-#ifndef __MATH_FLOAT4_H__
-#define __MATH_FLOAT4_H__
+#ifndef FLOAT4_H
+#define FLOAT4_H
 
 // EXTERNAL INCLUDES
 // INTERNAL INCLUDES
@@ -27,7 +27,7 @@ typedef struct float4_t
 * @param[in] z The z component of the vector
 * @return The created float4_t
 */
-float4_t float4_create(
+extern float4_t float4_create(
 	const f32 x,
 	const f32 y,
 	const f32 z,
@@ -41,7 +41,7 @@ float4_t float4_create(
 * @param[in] b The second float4_t
 * @return The result of the addition
 */
-float4_t float4_add(
+extern float4_t float4_add(
 	const float4_t a,
 	const float4_t b
 );
@@ -53,7 +53,7 @@ float4_t float4_add(
 * @param[in] b The second float4_t
 * @return The result of the subtraction
 */
-float4_t float4_sub(
+extern float4_t float4_sub(
 	const float4_t a,
 	const float4_t b
 );
@@ -65,7 +65,7 @@ float4_t float4_sub(
 * @param[in] b The second float4_t
 * @return The result of the multiplication
 */
-float4_t float4_mul(
+extern float4_t float4_mul(
 	const float4_t a,
 	const float4_t b
 );
@@ -77,7 +77,7 @@ float4_t float4_mul(
 * @param[in] b The second float4_t
 * @return The result of the division
 */
-float4_t float4_div(
+extern float4_t float4_div(
 	const float4_t a,
 	const float4_t b
 );
@@ -89,7 +89,7 @@ float4_t float4_div(
 * @param[in] scalar The scalar
 * @return The result of the multiplication
 */
-float4_t float4_mul_scalar(
+extern float4_t float4_mul_scalar(
 	const float4_t a,
 	f32 scalar
 );
@@ -101,7 +101,7 @@ float4_t float4_mul_scalar(
 * @param[in] scalar The scalar
 * @return The result of the division
 */
-float4_t float4_div_scalar(
+extern float4_t float4_div_scalar(
 	const float4_t a,
 	f32 scalar
 );
@@ -113,7 +113,7 @@ float4_t float4_div_scalar(
 * @param[in] b The float4_t
 * @return The result of the multiplication
 */
-float4_t float4_mul_float4(
+extern float4_t float4_mul_float4(
 	const float4_t a,
 	const float4_t b
 );
@@ -124,7 +124,7 @@ float4_t float4_mul_float4(
 * @param[in] q The float4_t
 * @return The conjugate of the quaternion
 */
-float4_t float4_conjugate(
+extern float4_t float4_conjugate(
 	const float4_t q
 );
 
@@ -135,7 +135,7 @@ float4_t float4_conjugate(
 * @param[in] quat The quaternion
 * @return The rotated vector
 */
-float3_t float4_rotate_float3(
+extern float3_t float4_rotate_float3(
 	const float3_t vec,
 	const float4_t quat
 );
@@ -146,7 +146,7 @@ float3_t float4_rotate_float3(
 * @param[in] q The float4_t
 * @return The magnitude of the quaternion
 */
-f32 float4_magnitude(
+extern f32 float4_magnitude(
 	const float4_t q
 );
 
@@ -157,7 +157,7 @@ f32 float4_magnitude(
 * @param[out] angle The angle
 * @param[out] axis The axis
 */
-void float4_to_angle_axis(
+extern void float4_to_angle_axis(
 	const float4_t q,
 	f32* angle,
 	float3_t* axis
@@ -170,7 +170,7 @@ void float4_to_angle_axis(
 * @param[in] axis The axis
 * @return The quaternion
 */
-float4_t float4_from_angle_axis(
+extern float4_t float4_from_angle_axis(
 	const f32 angle,
 	const float3_t axis
 );
@@ -181,7 +181,7 @@ float4_t float4_from_angle_axis(
 * @param[in] q The float4_t
 * @return The negated quaternion
 */
-float4_t float4_negate(
+extern float4_t float4_negate(
 	const float4_t q
 );
 
@@ -191,7 +191,7 @@ float4_t float4_negate(
 * @param[in] q The float4_t
 * @return The float3_t
 */
-float3_t float4_get_float3(
+extern float3_t float4_get_float3(
 	const float4_t q
 );
 
@@ -201,7 +201,7 @@ float3_t float4_get_float3(
 * @param[in] q The float4_t
 * @return The normalized quaternion
 */
-void float4_normalize(
+extern void float4_normalize(
 	float4_t* q
 );
 
@@ -213,10 +213,17 @@ void float4_normalize(
 * @param[in] t The progress from 0.0 to 1.0
 * @return The resulting quaternion
 */
-float4_t float4_lerp(
+extern float4_t float4_lerp(
 	float4_t* a,
 	float4_t* b,
 	f32 t
 );
 
-#endif // __MATH_FLOAT4_H__
+extern float4_t float4_zero;
+extern float4_t float4_unitx;
+extern float4_t float4_unity;
+extern float4_t float4_unitz;
+extern float4_t float4_unitw;
+extern float4_t float4_unitscale;
+
+#endif // FLOAT4_H

@@ -1,5 +1,5 @@
 // EXTERNAL INCLUDES
-#include <cmath>
+#include <math.h>
 // INTERNAL INCLUDES
 #include "float2.h"
 
@@ -66,4 +66,9 @@ float2_t float2_normalize(const float2_t a)
 	result.y = a.y / length;
 	return result;
 }
+// ************************************************************************************************
+float2_t float2_zero = { 0.0f, 0.0f };
+float2_t float2_unitx = { 1.0f, 0.0f };
+float2_t float2_unity = { 0.0f, 1.0f };
+float2_t float2_unitscale = { 1.0f, 1.0f };
 // ************************************************************************************************

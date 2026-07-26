@@ -1,5 +1,5 @@
 // EXTERNAL INCLUDES
-#include <cmath>
+#include <math.h>
 // INTERNAL INCLUDES
 #include "float3.h"
 
@@ -68,7 +68,7 @@ f32 float3_sqr_length(const float3_t a)
 	return a.x * a.x + a.y * a.y + a.z * a.z;
 }
 // ************************************************************************************************
-f32 float2_distance(const float3_t a, const float3_t b)
+f32 float3_distance(const float3_t a, const float3_t b)
 {
 	return float3_length(float3_sub(a, b));
 }
@@ -101,4 +101,10 @@ float3_t float3_negate(const float3_t a)
 	result.z = -a.z;
 	return result;
 }
+// ************************************************************************************************
+float3_t float3_zero = { 0.0f, 0.0f, 0.0f };
+float3_t float3_unitx = { 1.0f, 0.0f, 0.0f };
+float3_t float3_unity = { 0.0f, 1.0f, 0.0f };
+float3_t float3_unitz = { 0.0f, 0.0f, 1.0f };
+float3_t float3_unitscale = { 1.0f, 1.0f, 1.0f };
 // ************************************************************************************************

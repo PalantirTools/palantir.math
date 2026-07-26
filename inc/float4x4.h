@@ -1,5 +1,5 @@
-#ifndef __MATH_FLOAT4x4_H__
-#define __MATH_FLOAT4x4_H__
+#ifndef FLOAT4x4_H
+#define FLOAT4x4_H
 
 // EXTERNAL INCLUDES
 // INTERNAL INCLUDES
@@ -46,7 +46,7 @@ typedef struct float4x4_t
 * @param[in] m33 The value at row 3, column 3
 * @return The new float4x4_t
 */
-float4x4_t float4x4_create(
+extern float4x4_t float4x4_create(
 	float m00, float m01, float m02, float m03,
 	float m10, float m11, float m12, float m13,
 	float m20, float m21, float m22, float m23,
@@ -61,7 +61,7 @@ float4x4_t float4x4_create(
 * @param[in] row3 The fourth row
 * @return The new float4x4_t
 */
-float4x4_t float4x4_create_rows(
+extern float4x4_t float4x4_create_rows(
 	float4_t row0,
 	float4_t row1,
 	float4_t row2,
@@ -73,7 +73,7 @@ float4x4_t float4x4_create_rows(
 * @param[in] matrix The matrix to extract the translation vector from
 * @return The translation vector
 */
-float4_t float4x4_get_translation(
+extern float4_t float4x4_get_translation(
 	const float4x4_t* matrix
 );
 
@@ -83,7 +83,7 @@ float4_t float4x4_get_translation(
 * @param[in] axis The axis to rotate around
 * @param[in] angle The angle to rotate by
 */
-void float4x4_rotate(
+extern void float4x4_rotate(
 	float4x4_t* matrix,
 	const float3_t axis,
 	float angle
@@ -95,7 +95,7 @@ void float4x4_rotate(
 * @param[in] b The second matrix
 * @return The result of the multiplication
 */
-float4x4_t float4x4_mul(
+extern float4x4_t float4x4_mul(
 	const float4x4_t* a,
 	const float4x4_t* b
 );
@@ -106,7 +106,7 @@ float4x4_t float4x4_mul(
 * @param[in] b The float3 vector
 * @return The result of the multiplication
 */
-float3_t float4x4_mul_float3(
+extern float3_t float4x4_mul_float3(
 	const float4x4_t* a,
 	const float3_t vec
 );
@@ -115,7 +115,7 @@ float3_t float4x4_mul_float3(
 * @brief Normalize the given matrix
 * @param[in] matrix The matrix to normalize
 */
-void float4x4_normalize(
+extern void float4x4_normalize(
 	float4x4_t* matrix
 );
 
@@ -124,7 +124,7 @@ void float4x4_normalize(
 * @param[in] q The quaternion
 * @return The rotation matrix
 */
-float4x4_t float4x4_from_quaternion(
+extern float4x4_t float4x4_from_quaternion(
 	const float4_t q
 );
 
@@ -133,7 +133,7 @@ float4x4_t float4x4_from_quaternion(
 * @param[in] matrix The matrix to get the quaternion from
 * @return The quaternion
 */
-float4_t float4x4_to_quaternion(
+extern float4_t float4x4_to_quaternion(
 	const float4x4_t* matrix
 );
 
@@ -142,8 +142,11 @@ float4_t float4x4_to_quaternion(
 * @param[in] matrix The matrix to be transposed
 * @return The transposed matrix
 */
-float4x4_t float4x4_transpose(
+extern float4x4_t float4x4_transpose(
 	const float4x4_t* matrix
 );
 
-#endif // __MATH_FLOAT4x4_H__
+extern float4x4_t float4x4_zero;
+extern float4x4_t float4x4_unit;
+
+#endif // FLOAT4x4_H

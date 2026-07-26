@@ -1,5 +1,5 @@
 ﻿// EXTERNAL INCLUDES
-#include <cmath>
+#include <math.h>
 // INTERNAL INCLUDES
 #include "float3.h"
 #include "float4.h"
@@ -127,7 +127,7 @@ void float4_to_angle_axis(
 	float3_t* axis
 )
 {
-	if (nullptr == angle || nullptr == axis)
+	if (NULL == angle || NULL == axis)
 	{
 		return;
 	}
@@ -227,4 +227,11 @@ float4_t float4_lerp(
 
 	return result;
 }
+// ************************************************************************************************
+float4_t float4_zero = { 0.0f, 0.0f, 0.0f, 0.0f };
+float4_t float4_unitx = { 1.0f, 0.0f, 0.0f, 0.0f };
+float4_t float4_unity = { 0.0f, 1.0f, 0.0f, 0.0f };
+float4_t float4_unitz = { 0.0f, 0.0f, 1.0f, 0.0f };
+float4_t float4_unitw = { 0.0f, 0.0f, 0.0f, 1.0f };
+float4_t float4_unitscale = { 1.0f, 1.0f, 1.0f, 1.0f };
 // ************************************************************************************************
