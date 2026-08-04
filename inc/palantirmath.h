@@ -28,7 +28,14 @@
  * @param[in] max The maximum value.
  * @return The clamped value.
  */
-float clamp(float value, float min, float max);
+extern f32 clamp(f32 value, f32 min, f32 max);
+
+/**
+ * @brief Performs the step function on a value t.
+ * @param[in] value The time value.
+ * @return Eiterh 0.0 if t >= 0.5, 1.0 otherwise
+ */
+extern f32 step(const f32 t);
 
 /**
  * @brief Linearly interpolates between two values.
@@ -37,27 +44,55 @@ float clamp(float value, float min, float max);
  * @param[in] t The interpolation factor.
  * @return The interpolated value.
  */
-float lerp(float a, float b, float t);
+extern f32 lerp(f32 a, f32 b, f32 t);
 
 /**
  * @brief Applies the in-out sine easing function to a value.
  * @param[in] t The value to apply the easing function to.
  * @return The eased value.
  */
-float in_out_sine(const float t);
+extern f32 in_out_sine(const f32 t);
 
 /**
  * @brief Applies the in-out sigmoid easing function to a value.
  * @param[in] t The value to apply the easing function to.
  * @return The eased value.
  */
-float in_out_sigmoid(float x);
+extern f32 in_out_sigmoid(f32 x);
+
+/**
+ * @brief Applies the in-out sigmoid easing function to a value even smoother than the default sigmoid.
+ * @param[in] t The value to apply the easing function to.
+ * @return The eased value.
+ */
+extern f32 in_out_sigmoid_smoother(f32 x);
 
 /**
  * @brief Applies the in-exponential easing function to a value.
  * @param[in] t The value to apply the easing function to.
  * @return The eased value.
  */
-float in_expo(float x);
+extern f32 in_expo(f32 x);
+
+/**
+* @brief Applies the out-bounce easing function to a value.
+* @param[in] t The value to apply the easing function to.
+* @return The eased value.
+*/
+extern f32 out_bounce(f32 x);
+
+/**
+ * @brief Applies the in-bounce easing function to a value.
+ * @param[in] t The value to apply the easing function to.
+ * @return The eased value.
+ */
+extern f32 in_bounce(f32 x);
+
+/**
+* @brief Applies the in-out-bounce easing function to a value.
+* @param[in] t The value to apply the easing function to.
+* @return The eased value.
+*/
+extern f32 inout_bounce(f32 x);
 
 #endif // PALANTIRMATH_H
