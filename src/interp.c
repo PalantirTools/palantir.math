@@ -56,14 +56,6 @@ f32 interpolator_solve(interpolator_t interp)
 
 	if (!internal_interp) return NAN;
 
-	PA_LOG_DBUG("interpolator_solve: current=%f, target=%f, t=%f, f=%f, curve=%d",
-		internal_interp->current,
-		internal_interp->target,
-		internal_interp->t,
-		internal_interp->f,
-		internal_interp->curve
-	);
-
 	switch (internal_interp->curve)
 	{
 		case SDK_CURVE_STEP: return lerp(internal_interp->start, internal_interp->target, step(internal_interp->t));
