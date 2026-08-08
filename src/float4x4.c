@@ -220,6 +220,38 @@ float4_t float4x4_to_quaternion(
 	return result;
 }
 // ************************************************************************************************
+float4x4_t float4x4_projection(const float2_t size, const float2_t clip, const f32 fov)
+{
+	u32 width = size.x;
+	u32 height = size.y;
+
+	f32 near_clip = clip.x;
+	f32 far_clip = clip.y;
+
+	if (width <= 0 || height <= 0 || fov <= 0)
+	{
+		return float4x4_create(
+			1, 0, 0, 0,
+			0, 1, 0, 0,
+			0, 0, 1, 0,
+			0, 0, 0, 1
+		);
+	}
+
+	f32 aspect_ratio = (f32)width / (f32)height;
+
+	f32 y_scale = 1.0f / tanf(fov * 0.5f);
+	f32 x_scale = y_scale / aspect_ratio;
+
+	// RH projection matrix
+	return float4x4_create(
+		x_scale, 0.0f, 0.0f, 0.0f,
+		0.0f, y_scale, 0.0f, 0.0f,
+		0.0f, 0.0f, far_clip / (near_clip - far_clip), -1.0f,
+		0.0f, 0.0f, near_clip * far_clip / (near_clip - far_clip), 0.0f
+	);
+}
+// ************************************************************************************************
 float4x4_t float4x4_transpose(const float4x4_t* matrix)
 {
 	float4x4_t result;

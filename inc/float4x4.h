@@ -4,6 +4,7 @@
 // EXTERNAL INCLUDES
 // INTERNAL INCLUDES
 #include "basetypes.h"
+#include "float2.h"
 #include "float4.h"
 
 /**
@@ -137,6 +138,10 @@ extern float4_t float4x4_to_quaternion(
 	const float4x4_t* matrix
 );
 
+/**/
+extern float4x4_t float4x4_projection(
+	float2_t dim, float2_t clip, f32 fov
+);
 /**
 * @brief Transpose a matrix
 * @param[in] matrix The matrix to be transposed
